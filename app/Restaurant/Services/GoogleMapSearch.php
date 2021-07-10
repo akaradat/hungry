@@ -5,6 +5,7 @@ namespace App\Restaurant\Services;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\URL;
 
 class GoogleMapSearch
 {
@@ -106,12 +107,19 @@ class GoogleMapSearch
 
         // mapping result data of each places to filter only needed fields
         $neededResult = collect($res['results'])->map(function ($place) {
+            $photoRef = $place['photos'][0]['photo_reference'] ?? null;
+            if ($photoRef) {
+                $image = "https://maps.googleapis.com/maps/api/place/photo?key={$this->key}&photoreference={$photoRef}&maxheight=500";
+            } else {
+                $image = URL::to("/images/no-image.jpeg");
+            }
             return [
                 'place_id' => $place['place_id'],
                 'name' => $place['name'],
+                'address' => $place['formatted_address'],
                 'rating' => $place['rating'],
                 'user_ratings_total' => $place['user_ratings_total'],
-                'photo_reference' => $place['photos'][0]['photo_reference'] ?? null,
+                'image' => $image,
             ];
         });
 
