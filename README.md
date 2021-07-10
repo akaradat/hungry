@@ -20,7 +20,7 @@ Framwork that use in this project:
 
 Clone the repository
 
-    git clone git@github.com:akaradat/hungry.git
+    git clone https://github.com/akaradat/hungry.git
 
 Switch to the repo folder
 
