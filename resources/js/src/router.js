@@ -21,12 +21,12 @@ const router = new Router({
     routes: [
         {
             path: "",
-            component: () => import("@/layouts/full-page/FullPage.vue"),
+            component: () => import("@/layouts/main/Main.vue"),
             children: [
                 {
                     path: "*",
                     name: "restaurant",
-                    component: () => import("@/views/pages/Login.vue")
+                    component: () => import("@/views/pages/Restaurant.vue")
                 }
             ]
         }
