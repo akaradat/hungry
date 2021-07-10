@@ -38,13 +38,6 @@ Generate a new application key
 
     php artisan key:generate
 
-For production environments...
-
-```sh
-npm install --production
-npm run prod
-```
-
 ## Docker
 
 Suggest to use `LARADOCK`. Here is the [document](https://laradock.io/getting-started/).
