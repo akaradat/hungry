@@ -1,6 +1,7 @@
 # HUNGRY
 
 ## Restaurant searcher
+for interview coding assignment
 
 ## Features
 
